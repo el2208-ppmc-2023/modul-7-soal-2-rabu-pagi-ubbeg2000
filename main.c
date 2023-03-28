@@ -89,7 +89,7 @@ void enqueue(Queue *queue, const char* new_data)
     }
     else
     {
-        queue->tai// Inisiasi stack dan queue
+        queue->tail;// Inisiasi stack dan queue
 typedef struct Node {
     char imigran[20];
     struct Node *next;
@@ -214,7 +214,7 @@ int main()
     // Input
     char file[255];
     // file
-    printf("Masukkan hari: "); scanf("%s", &file);
+    printf("Masukkan hari: "); scanf("%s", file);
     FILE *stream = fopen(file, "r");
     if (stream == NULL) {
         printf("Hari libur!\n");
@@ -236,7 +236,7 @@ int main()
     int jumlah = 0;
     char perintah[8];
     printf("\n>> ");
-    scanf("%s", &perintah);
+    scanf("%s", perintah);
     while (strcmp(perintah, "Rest"))
     {
         if (!strcmp(perintah, "Next"))
