@@ -272,7 +272,7 @@ int main()
         }
 
         printf("\n>> ");
-        scanf("%s", &perintah);
+        scanf("%s", perintah);
     }
     printf("Selesai");
 
