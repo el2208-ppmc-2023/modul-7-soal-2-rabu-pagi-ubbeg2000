@@ -94,94 +94,6 @@ void enqueue(Queue *queue, const char *new_data)
     }
     else
     {
-        queue->tail;
-        queue->head = new_node;
-    }
-}
-// Inisiasi stack dan queue
-typedef struct Node
-{
-    char imigran[20];
-    struct Node *next;
-} Node;
-
-typedef struct
-{
-    Node *head;
-} Stack;
-
-typedef struct
-{
-    Node *head;
-    Node *tail;
-} Queue;
-
-// Silakan manfaatkan template kode tutorial modul
-// berikut jika dirasa mempermudah pengerjaan
-
-// cek kondisi stack kosong
-int isStackEmpty(Stack *stack)
-{
-    return stack->head == NULL;
-}
-
-// memindahkan data file ke dalam stack
-void push(Stack *stack, const char *new_data)
-{
-    Node *new_node = (Node *)malloc(sizeof(Node));
-    strcpy(new_node->imigran, new_data);
-    new_node->next = stack->head;
-    stack->head = new_node;
-}
-
-// Next, mengambil data paling atas stack
-char *pop(Stack *stack)
-{
-    char *ret_val = NULL;
-    Node *temp = stack->head;
-    if (temp != NULL)
-    {
-        ret_val = (char *)malloc(strlen(temp->imigran) + 1);
-        strcpy(ret_val, temp->imigran);
-        stack->head = temp->next;
-        free(temp);
-    }
-    return (ret_val);
-}
-
-// untuk debugging
-void printStack(Stack *stack)
-{
-    Node *current = stack->head;
-    int i = 1;
-    while (current != NULL)
-    {
-        printf("%d %s\n", i, current->imigran);
-        current = current->next;
-        i++;
-    }
-    printf("\n");
-}
-
-// cek kondisi queue kosong
-int isQueueEmpty(Queue *queue)
-{
-    return queue->head == NULL;
-}
-
-// Next, memasukkan data ke akhir queue
-void enqueue(Queue *queue, const char *new_data)
-{
-    Node *new_node = (Node *)malloc(sizeof(Node));
-    strcpy(new_node->imigran, new_data);
-    new_node->next = NULL;
-    if (!isQueueEmpty(queue))
-    {
-        queue->tail->next = new_node;
-        queue->tail = new_node;
-    }
-    else
-    {
         queue->tail = new_node;
         queue->head = new_node;
     }
@@ -230,7 +142,7 @@ int main()
     char file[255];
     // file
     printf("Masukkan hari: ");
-    scanf("%s", file);
+    scanf("%s", &file);
     FILE *stream = fopen(file, "r");
     if (stream == NULL)
     {
@@ -255,7 +167,7 @@ int main()
     int jumlah = 0;
     char perintah[8];
     printf("\n>> ");
-    scanf("%s", perintah);
+    scanf("%s", &perintah);
     while (strcmp(perintah, "Rest"))
     {
         if (!strcmp(perintah, "Next"))
@@ -291,7 +203,7 @@ int main()
         }
 
         printf("\n>> ");
-        scanf("%s", perintah);
+        scanf("%s", &perintah);
     }
     printf("Selesai");
 
