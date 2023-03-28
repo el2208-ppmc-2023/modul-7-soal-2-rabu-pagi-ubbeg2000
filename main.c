@@ -1,11 +1,3 @@
-/** EL2208 Praktikum Pemecahan Masalah dengan C 2022/2023
- *   Modul               :
- *   Hari dan Tanggal    :
- *   Nama (NIM)          :
- *   Nama File           : main.c
- *   Deskripsi           :
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -142,7 +134,7 @@ int main()
     char file[255];
     // file
     printf("Masukkan hari: ");
-    scanf("%s", &file);
+    scanf("%s", file);
     FILE *stream = fopen(file, "r");
     if (stream == NULL)
     {
@@ -167,7 +159,7 @@ int main()
     int jumlah = 0;
     char perintah[8];
     printf("\n>> ");
-    scanf("%s", &perintah);
+    scanf("%s", perintah);
     while (strcmp(perintah, "Rest"))
     {
         if (!strcmp(perintah, "Next"))
@@ -203,7 +195,7 @@ int main()
         }
 
         printf("\n>> ");
-        scanf("%s", &perintah);
+        scanf("%s", perintah);
     }
     printf("Selesai");
 
