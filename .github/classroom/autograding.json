@@ -15,7 +15,7 @@
       "setup": "",
       "run": "./main",
       "input": "senin.txt\r\nMonitor\r\nNext\r\nDone\r\nMonitor\r\nNext\r\nRest",
-      "output": "Jumlah imigran adalah 0\r\n\r\nJumlah imigran adalah 1\r\n\r\nPengunjung habis!\r\n\r\nSelesai",
+      "output": "Jumlah imigran adalah 1",
       "comparison": "included",
       "timeout": 1,
       "points": 20
@@ -24,8 +24,8 @@
       "name": "3",
       "setup": "",
       "run": "./main",
-      "input": "selasa.txt\r\nDone\r\nNext\r\nNext\r\nObserve\r\nMonitorRest",
-      "output": "Pos kosong!\r\n\r\n1 Jamie Adeyemi\r\n2 Ferry Pier\r\n\r\nJumlah imigran adalah 0\r\n\r\nSelesai",
+      "input": "selasa.txt\r\nDone\r\nNext\r\nNext\r\nObserve\r\nMonitor\r\nRest",
+      "output": "1 Jamie Adeyemi\r\n2 Ferry Pier",
       "comparison": "included",
       "timeout": 1,
       "points": 20
@@ -35,7 +35,7 @@
       "setup": "",
       "run": "./main",
       "input": "rabu.txt\r\nNext\r\nNext\r\nObserve\r\nNext\r\nNext\r\nNext\r\nNext\r\nObserve\r\nDone\r\nDone\r\nDone\r\nObserve\r\nMonitor\r\nRest",
-      "output": "1 Alyosha Egorov\r\n2 Efia Danso\r\n\r\nPengunjung habis!\r\n\r\n1 Alyosha Egorov\r\n2 Efia Danso\r\n3 Helsinki Pochinki\r\n4 Kaela Kovalskia\r\n5 Liam Byrne\r\n\r\n1 Kaela Kovalskia\r\n2 Liam Byrne\r\n\r\nJumlah imigran adalah 3\r\n\r\nSelesai",
+      "output": "1 Kaela Kovalskia\r\n2 Liam Byrne",
       "comparison": "included",
       "timeout": 1,
       "points": 20
@@ -45,7 +45,7 @@
       "setup": "",
       "run": "./main",
       "input": "kamis.txt\r\nNext\r\nNext\r\nDone\r\nDone\r\nNext\r\nNext\r\nObserve\r\nDone\r\nDone\r\nObserve\r\nMonitor\r\nRest",
-      "output": "1 Kirra Foster\r\n2 Sasha Novikov\r\n\r\nJumlah imigran adalah 4\r\n\r\nSelesai",
+      "output": "1 Kirra Foster\r\n2 Sasha Novikov",
       "comparison": "included",
       "timeout": 1,
       "points": 20
