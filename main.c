@@ -1,5 +1,5 @@
 /** EL2208 Praktikum Pemecahan Masalah dengan C 2022/2023
- *   Modul               : 
+ *   Modul               :
  *   Hari dan Tanggal    :
  *   Nama (NIM)          :
  *   Nama File           : main.c
@@ -11,95 +11,19 @@
 #include <string.h>
 
 // Inisiasi stack dan queue
-typedef struct Node {
-    char imigran[20];
-    struct Node* next;
-} Node;
-
-typedef struct {
-    Node* head;
-} Stack;
-
-typedef struct {
-    Node* head;
-    Node* tail;
-} Queue;
-
-// Silakan manfaatkan template kode tutorial modul
-// berikut jika dirasa mempermudah pengerjaan
-
-// cek kondisi stack kosong
-int isStackEmpty(Stack *stack)
+typedef struct Node
 {
-    return stack->head == NULL;
-}
-
-// memindahkan data file ke dalam stack
-void push(Stack *stack, const char* new_data)
-{
-    Node *new_node = (Node *)malloc(sizeof(Node));
-    strcpy(new_node->imigran, new_data);
-    new_node->next = stack->head;
-    stack->head = new_node;
-}
-
-// Next, mengambil data paling atas stack
-char* pop(Stack *stack)
-{
-    char* ret_val = NULL;
-    Node *temp = stack->head;
-    if (temp != NULL)
-    {
-        ret_val = (char*)malloc(strlen(temp->imigran) + 1);
-        strcpy(ret_val, temp->imigran);
-        stack->head = temp->next;
-        free(temp);
-    }
-    return (ret_val);
-}
-
-// untuk debugging
-void printStack(Stack *stack)
-{
-    Node *current = stack->head; int i = 1;
-    while (current != NULL)
-    {
-        printf("%d %s\n", i, current->imigran);
-        current = current->next; i++;
-    }
-    printf("\n");
-}
-
-// cek kondisi queue kosong
-int isQueueEmpty(Queue *queue)
-{
-    return queue->head == NULL;
-}
-
-// Next, memasukkan data ke akhir queue
-void enqueue(Queue *queue, const char* new_data)
-{
-    Node *new_node = (Node *)malloc(sizeof(Node));
-    strcpy(new_node->imigran, new_data);
-    new_node->next = NULL;
-    if (!isQueueEmpty(queue))
-    {
-        queue->tail->next = new_node;
-        queue->tail = new_node;
-    }
-    else
-    {
-        queue->tail;// Inisiasi stack dan queue
-typedef struct Node {
     char imigran[20];
     struct Node *next;
 } Node;
 
-typedef struct {
+typedef struct
+{
     Node *head;
 } Stack;
 
-typedef struct {
+typedef struct
+{
     Node *head;
     Node *tail;
 } Queue;
@@ -140,7 +64,96 @@ char *pop(Stack *stack)
 // untuk debugging
 void printStack(Stack *stack)
 {
-    Node *current = stack->head; int i = 1;
+    Node *current = stack->head;
+    int i = 1;
+    while (current != NULL)
+    {
+        printf("%d %s\n", i, current->imigran);
+        current = current->next;
+        i++;
+    }
+    printf("\n");
+}
+
+// cek kondisi queue kosong
+int isQueueEmpty(Queue *queue)
+{
+    return queue->head == NULL;
+}
+
+// Next, memasukkan data ke akhir queue
+void enqueue(Queue *queue, const char *new_data)
+{
+    Node *new_node = (Node *)malloc(sizeof(Node));
+    strcpy(new_node->imigran, new_data);
+    new_node->next = NULL;
+    if (!isQueueEmpty(queue))
+    {
+        queue->tail->next = new_node;
+        queue->tail = new_node;
+    }
+    else
+    {
+        queue->tail;
+        queue->head = new_node;
+    }
+}
+// Inisiasi stack dan queue
+typedef struct Node
+{
+    char imigran[20];
+    struct Node *next;
+} Node;
+
+typedef struct
+{
+    Node *head;
+} Stack;
+
+typedef struct
+{
+    Node *head;
+    Node *tail;
+} Queue;
+
+// Silakan manfaatkan template kode tutorial modul
+// berikut jika dirasa mempermudah pengerjaan
+
+// cek kondisi stack kosong
+int isStackEmpty(Stack *stack)
+{
+    return stack->head == NULL;
+}
+
+// memindahkan data file ke dalam stack
+void push(Stack *stack, const char *new_data)
+{
+    Node *new_node = (Node *)malloc(sizeof(Node));
+    strcpy(new_node->imigran, new_data);
+    new_node->next = stack->head;
+    stack->head = new_node;
+}
+
+// Next, mengambil data paling atas stack
+char *pop(Stack *stack)
+{
+    char *ret_val = NULL;
+    Node *temp = stack->head;
+    if (temp != NULL)
+    {
+        ret_val = (char *)malloc(strlen(temp->imigran) + 1);
+        strcpy(ret_val, temp->imigran);
+        stack->head = temp->next;
+        free(temp);
+    }
+    return (ret_val);
+}
+
+// untuk debugging
+void printStack(Stack *stack)
+{
+    Node *current = stack->head;
+    int i = 1;
     while (current != NULL)
     {
         printf("%d %s\n", i, current->imigran);
@@ -194,11 +207,13 @@ char *dequeue(Queue *queue)
 // Observe, print isi queue
 void printQueue(Queue *queue)
 {
-    Node *current = queue->head; int i = 1;
+    Node *current = queue->head;
+    int i = 1;
     while (current != NULL)
     {
         printf("%d %s\n", i, current->imigran);
-        current = current->next; i++;
+        current = current->next;
+        i++;
     }
 }
 
@@ -214,19 +229,23 @@ int main()
     // Input
     char file[255];
     // file
-    printf("Masukkan hari: "); scanf("%s", file);
+    printf("Masukkan hari: ");
+    scanf("%s", file);
     FILE *stream = fopen(file, "r");
-    if (stream == NULL) {
+    if (stream == NULL)
+    {
         printf("Hari libur!\n");
         return 0;
     }
-        // data
-        char line[255]; char *token; int i = 0;
-        while (fgets(line, 255, stream))
-        {
-            token = strtok(line, "\n");
-            push(stack, token);
-        }
+    // data
+    char line[255];
+    char *token;
+    int i = 0;
+    while (fgets(line, 255, stream))
+    {
+        token = strtok(line, "\n");
+        push(stack, token);
+    }
     fclose(stream);
 
     // uncomment untuk lihat isi stack
@@ -261,7 +280,7 @@ int main()
                 dequeue(queue);
                 jumlah++;
             }
-                    }
+        }
         if (!strcmp(perintah, "Observe"))
         {
             printQueue(queue);
